@@ -70,6 +70,30 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
                              VALUES (20,'Mia','Johnson',null,null);
 
 
+  EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY 
+______________ _____________ ____________ ____________ _________
+             1 John          Doe          01-07-22         60000
+             2 Jane          Smith                         55000 
+             3 Michael       Johnson      15-03-23
+             4 Emily         Williams
+             5 Daniel        Brown        05-09-22         48000
+             6 Laura         Davis        20-04-23         52000
+             7 Matthew       Wilson       10-12-21         54000
+             8 Emma          Brown
+             9 Olivia        Jones        30-05-23         59000
+            10 Noah          Smith        08-08-22
+            11 William       Johnson      25-06-21         45000
+            12 Ava           Williams
+            13 Sophia        Davis        18-02-23         57000
+            14 James         Wilson
+            15 Oliver        Miller       12-10-22         51000
+            16 Amelia        Brown
+            17 Benjamin      Davis        02-12-21         53000 
+            18 Elijah        Wilson       09-03-23
+            19 Lucas         Brown        22-06-22         56000
+            20 Mia           Johnson
+
+
 ----------------------- Basic SELECT Queries: ------------------------	
 
 1. Display the details of all employees.
@@ -189,14 +213,76 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
 
     SELECT 'Employee' || ' ' || last_name || ' ' || first_name || ' ' || 'has a salary of' || salary || ' ' || '.' AS message FROM Employees; 
 
-
-
-
-
-
-
-
+----------------------------  Using ANY(), SOME(), and ALL(): -------------------------
+ 1. List employees with salaries greater than ANY other employees salary.
     
+    SELECT * From Employees WHERE salary > ANY (SELECT salary FROM Employees);
+
+2.  Show employees with salaries greater than the minimum salary in the company.
+
+    SELECT * FROM Employees WHERE salary > (SELECT MIN(salary) FROM Employees);
+
+3. Display employees with salaries less than ALL other employees salaries.
+
+    SELECT * FROM Employees WHERE salary < ALL (SELECT salary FROM Employees);
+
+4. List employees with salaries greater than ANY other employees salary.
+    
+    SELECT * FROM Employees WHERE salary > ANY (SELECT salary FROM Employees);
+
+5. Show employees with salaries greater than SOME of the salaries.
+
+    SELECT * FROM Employees WHERE salary > SOME (SELECT salary FROM Employees);
+
+6. Display employees with salaries less than ALL employees salaries.
+
+    SELECT * FROM Employees WHERE salary < ALL (SELECT salary FROM Employees);
+
+--------------------------- Combining Functions and Operators: ---------
+
+1. Display the employee IDs and names for employees hired in 2022.
+
+    SELECT employee_id, first_name, last_name FROM Employees WHERE EXTRACT(YEAR FROM hire_date) = 2022;
+
+2. List the first name and salary of employees with salaries greater than $55000.00 and hired in 2021.
+
+    SELECT  first_name, salary FROM Employees WHERE salary > 55000 AND EXTRACT(YEAR FROM hire_date) = 2021;
+
+3. Display the employee IDs and last names for employees hired before January 1, 2022, or with a salary greater than $55000.00.
+
+    SELECT  employee_id,last_name FROM Employees WHERE hire_date < TO_DATE('01-jan-2022', 'DD-MM-YYYY') AND salary > 55000.00;
+
+4. List the first name and salary of employees hired in 2022 with salaries greater than $50000.00.
+
+    SELECT  first_name, salary FROM Employees WHERE  EXTRACT(YEAR FROM hire_date) = 2022 AND salary > 50000;
+
+------------------- Using Logical Operators: -----------------------------------------
+
+1. Display employees hired in 2022 with salaries less than $55000.00.
+
+    SELECT * FROM Employees WHERE EXTRACT(YEAR FROM hire_date) = 2022 AND salary < 55000.00;
+
+2. List employees with non-null hire dates and salaries.
+
+    SELECT * FROM Employees WHERE hire_date IS NOT NULL AND salary IS NOT NULL;
+
+3. Show employees with salaries less than $50000.00 or hired in 2023.
+
+    SELECT * FROM Employees WHERE salary < 50000.00 OR EXTRACT(YEAR FROM hire_date) = 2023;
+
+4. Display employees with last names containing 'Brown' or hired in 2023 with salaries less than $60000.00.
+
+    SELECT * FROM Employees WHERE (last_name LIKE '%Brown%' OR EXTRACT(YEAR FROM hire_date) = 2023) AND salary < 60000.00;
+
+5. List employees with non-null hire dates and salaries.
+
+    SELECT * FROM Employees WHERE hire_date IS NOT NULL AND salary IS NOT NULL;
+
+6. Show employees with salaries less than $50000.00 and hire dates either before January 1, 2022, or null.
+
+    SELECT * FROM Employees WHERE salary < 50000.00 AND (hire_date < DATE '2022-01-01' OR hire_date IS NULL);
+
+
 
 
 
