@@ -259,21 +259,64 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
 
     SELECT * FROM Employees WHERE last_name LIKE '%son%';
 
+       EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+    ______________ _____________ ____________ ____________ _________
+           103        Michael       Johnson      15-03-23
+           107        Matthew       Wilson       10-12-21     54000
+           111        William       Johnson      25-06-21     45000
+           114        James         Wilson
+           118        Elijah        Wilson       09-03-23
+           120        Mia           Johnson
+
 2. Display employees with first names ending with 'a'.
 
     SELECT * FROM Employees WHERE first_name LIKE '%a';
+
+       EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+    ______________ _____________ ____________ ____________ _________
+           106         Laura         Davis        20-04-23      52000
+           108         Emma          Brown
+           109         Olivia        Jones        30-05-23      59000
+           112         Ava           Williams
+           113         Sophia        Davis        18-02-23      57000
+           116         Amelia        Brown
+           120         Mia           Johnson
 
 3. List employees with last names starting with 'Sm'.
 
     SELECT * FROM Employees WHERE last_name LIKE 'Sm%';
 
+     EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+    ______________ _____________ ____________ ____________ _________
+           102        Jane          Smith                    55000
+           110        Noah          Smith        08-08-22
+
+
 4. Show employees with first names containing 'e' in any position.
 
     SELECT * FROM Employees WHERE first_name LIKE '%e%';
 
+       EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+    ______________ _____________ ____________ ____________ _________
+           102         Jane          Smith                     55000
+           103         Michael       Johnson      15-03-23
+           105         Daniel        Brown        05-09-22     48000
+           107         Matthew       Wilson       10-12-21     54000
+           114         James         Wilson
+           115         Oliver        Miller       12-10-22     51000
+           116         Amelia        Brown
+           117         Benjamin      Davis        02-12-21     53000
+
 5. Display employees with last names that exactly match 'Brown'.
 
     SELECT * FROM Employees WHERE last_name LIKE 'Brown';
+
+   EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+ ______________ _____________ ____________ ____________ _________
+           105     Daniel        Brown        05-09-22    48000
+           108     Emma          Brown
+           116     Amelia        Brown
+           119     Lucas         Brown        22-06-22    56000
 
 =============================== IN Operator: ===========================
 
@@ -281,21 +324,56 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
 
     SELECT * FROM Employees WHERE employee_id IN (101, 102, 103);
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+   ______________ _____________ ____________ ____________ _________
+           101      John          Doe          01-07-22    60000
+           102      Jane          Smith                    55000
+           103      Michael       Johnson      15-03-23
+
 2. List employees with first names 'John', 'Jane', and 'Michael'.
 
     SELECT * FROM Employees WHERE first_name IN ('John', 'Jane', 'Michael');
+    
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+    ______________ _____________ ____________ ____________ _________
+           101      John          Doe          01-07-22      60000
+           102      Jane          Smith                      55000
+           103      Michael       Johnson      15-03-23
 
 3. Display employees with salaries of $50,000.00, $55,000.00, or $60,000.00.
 
     SELECT * FROM Employees WHERE salary IN (50000.00, 55000.00, 60000.00);
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+    ______________ _____________ ____________ ____________ _________
+           101      John          Doe          01-07-22      60000
+           102      Jane          Smith                      55000
+
 4. Show employees with last names 'Smith', 'Johnson', or 'Williams'.
 
     SELECT * FROM Employees WHERE last_name IN ('Smith', 'Johnson', 'Williams');
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+    ______________ _____________ ____________ ____________ _________
+           102      Jane          Smith                     55000
+           103      Michael       Johnson      15-03-23
+           104      Emily         Williams
+           110      Noah          Smith        08-08-22
+           111      William       Johnson      25-06-21     45000
+           112      Ava           Williams
+           120      Mia           Johnson
+
 5. List employees with employee IDs 104, 105, or 106.
 
     SELECT * FROM Employees WHERE employee_id IN (104, 105, 106);
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+   ______________ _____________ ____________ ____________ _________
+           104      Emily         Williams
+           105      Daniel        Brown        05-09-22     48000
+           106      Laura         Davis        20-04-23     52000
+
+
 
 =============================== BETWEEN Operator: ===========================
 
@@ -303,21 +381,70 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
 
     SELECT * FROM Employees WHERE salary BETWEEN 50000.00 AND 60000.00;
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           119 Lucas         Brown        22-06-22         56000
+
 2. List employees hired between '2022-01-01' and '2022-12-31'.
 
-    SELECT * FROM Employees WHERE hire_date BETWEEN '2022-01-01' AND '2022-12-31';
+    SELECT * FROM Employees WHERE hire_date BETWEEN '01-jan-2022' AND '31-dec-2022';
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+   ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           105 Daniel        Brown        05-09-22         48000
+           110 Noah          Smith        08-08-22
+           115 Oliver        Miller       12-10-22         51000
+           119 Lucas         Brown        22-06-22         56000
 
 3. Display employees with employee IDs between 101 and 110.
 
     SELECT * FROM Employees WHERE employee_id BETWEEN 101 AND 110;
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+   ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           103 Michael       Johnson      15-03-23
+           104 Emily         Williams
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           108 Emma          Brown
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+
 4. Show employees hired between '2021-01-01' and '2021-12-31'.
 
-    SELECT * FROM Employees WHERE hire_date BETWEEN '2021-01-01' AND '2021-12-31';
+    SELECT * FROM Employees WHERE hire_date BETWEEN '01-jan-2021' AND '31-dec-2021';
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+   ______________ _____________ ____________ ____________ _________
+           107 Matthew       Wilson       10-12-21         54000
+           111 William       Johnson      25-06-21         45000
+           117 Benjamin      Davis        02-12-21         53000
 
 5. List employees with salaries between $45,000.00 and $55,000.00.
 
     SELECT * FROM Employees WHERE salary BETWEEN 45000.00 AND 55000.00;
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           102 Jane          Smith                         55000
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           111 William       Johnson      25-06-21         45000
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
 
 =============================== IS NULL Operator: ===========================
 
@@ -325,21 +452,49 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
 
     SELECT * FROM Employees WHERE hire_date IS NULL;
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           102 Jane          Smith                         55000
+           104 Emily         Williams
+           108 Emma          Brown
+           112 Ava           Williams
+           114 James         Wilson
+           116 Amelia        Brown
+           120 Mia           Johnson
+
 2. List employees with null salaries.
 
     SELECT * FROM Employees WHERE salary IS NULL;
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           103 Michael       Johnson      15-03-23
+           104 Emily         Williams
+           108 Emma          Brown
+           110 Noah          Smith        08-08-22
+           112 Ava           Williams
+           114 James         Wilson
+           116 Amelia        Brown
+           118 Elijah        Wilson       09-03-23
+           120 Mia           Johnson
 
 3. Display employees with null first names.
 
     SELECT * FROM Employees WHERE first_name IS NULL;
 
+    no rows selected
+
 4. Show employees with null last names.
 
     SELECT * FROM Employees WHERE last_name IS NULL;
 
+    no rows selected
+
 5. List employees with null employee IDs.
 
     SELECT * FROM Employees WHERE employee_id IS NULL;
+
+    no rows selected
 
 =============================== Logical Operator ===========================
 
@@ -347,21 +502,69 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
  
     SELECT * FROM EMPLOYEES WHERE SALARY IS NAN;
 
+    no rows selected
+
 2. List employees with infinite salaries.
 
     SELECT * FROM EMPLOYEES WHERE SALARY IS INFINITE;
+
+    no rows selected
 
 3. Display employees with non-null hire dates.
 
     SELECT * FROM Employees WHERE hire_date IS NOT NULL;
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           103 Michael       Johnson      15-03-23
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+
 4. Show employees with salaries that are not NaN.
 
     SELECT * FROM EMPLOYEES WHERE SALARY IS NOT NAN;
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           111 William       Johnson      25-06-21         45000
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           119 Lucas         Brown        22-06-22         56000
+
 5. List employees with salaries that are not infinite.
 
     SELECT * FROM EMPLOYEES WHERE SALARY IS NOT INFINITE;
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           111 William       Johnson      25-06-21         45000
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           119 Lucas         Brown        22-06-22         56000
 
 
 =============================== NOT Like Operator: ===========================
@@ -370,22 +573,110 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
 
     SELECT * FROM Employees WHERE last_name NOT LIKE '%son%';
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+ ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           104 Emily         Williams
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           108 Emma          Brown
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           116 Amelia        Brown
+           117 Benjamin      Davis        02-12-21         53000
+           119 Lucas         Brown        22-06-22         56000
+
 2. List employees with first names not ending with 'a'.
 
     SELECT * FROM Employees WHERE first_name NOT LIKE '%a';
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           103 Michael       Johnson      15-03-23
+           104 Emily         Williams
+           105 Daniel        Brown        05-09-22         48000
+           107 Matthew       Wilson       10-12-21         54000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
 
 3. Display employees with last names not starting with 'Sm'.
 
     SELECT * FROM Employees WHERE last_name NOT LIKE 'Sm%';
 
+       EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           103 Michael       Johnson      15-03-23
+           104 Emily         Williams
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           108 Emma          Brown
+           109 Olivia        Jones        30-05-23         59000
+           111 William       Johnson      25-06-21         45000
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           116 Amelia        Brown
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+           120 Mia           Johnson
+
 4. Show employees with first names not containing 'e' in any position.
 
     SELECT * FROM Employees WHERE first_name NOT LIKE '%e%';
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           104 Emily         Williams
+           106 Laura         Davis        20-04-23         52000
+           108 Emma          Brown
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+           120 Mia           Johnson
 
 5. List employees with last names that do not exactly match 'Brown'.
 
     SELECT * FROM employees WHERE last_name != 'Brown';
     SELECT * FROM employees WHERE last_name <> 'Brown';
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+   ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           103 Michael       Johnson      15-03-23
+           104 Emily         Williams
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           120 Mia           Johnson
 
 =============================== NOT IN Operator: ===========================
 
@@ -393,21 +684,102 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
 
     SELECT * FROM Employees WHERE employee_id NOT IN (101, 102, 103, 104, 105, 106, 107, 108, 109, 110);
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           111 William       Johnson      25-06-21         45000
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           116 Amelia        Brown
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+           120 Mia           Johnson
+
 2. List employees with first names not 'John', 'Jane', or 'Michael'.
 
     SELECT * FROM Employees WHERE first_name NOT IN ('John', 'Jane', 'Michael');
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           104 Emily         Williams
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           108 Emma          Brown
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           116 Amelia        Brown
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+           120 Mia           Johnson
 
 3. Display employees with salaries not $50,000.00, $55,000.00, or $60,000.00.
 
     SELECT * FROM Employees WHERE salary NOT IN (50000.00, 55000.00, 60000.00);
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           111 William       Johnson      25-06-21         45000
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           119 Lucas         Brown        22-06-22         56000
+
 4. Show employees with last names not 'Smith', 'Johnson', or 'Williams'.
 
     SELECT * FROM Employees WHERE last_name NOT IN ('Smith', 'Johnson', 'Williams');
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           108 Emma          Brown
+           109 Olivia        Jones        30-05-23         59000
+           113 Sophia        Davis        18-02-23         57000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           116 Amelia        Brown
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+
 5. List employees with employee IDs not 104, 105, or 106.
 
     SELECT * FROM Employees WHERE employee_id NOT IN (104, 105, 106);
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           103 Michael       Johnson      15-03-23
+           107 Matthew       Wilson       10-12-21         54000
+           108 Emma          Brown
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           116 Amelia        Brown
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+           120 Mia           Johnson
 
 =============================== NOT BETWEEN Operator: =========================== 
 
@@ -415,9 +787,25 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
 
     SELECT * FROM Employees WHERE salary NOT BETWEEN 50000.00 AND 60000.00;
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           105 Daniel        Brown        05-09-22         48000
+           111 William       Johnson      25-06-21         45000
+
 2. List employees hired not between '2022-01-01' and '2022-12-31'.
 
-    SELECT * FROM Employees WHERE hire_date NOT BETWEEN '2022-01-01' AND '2022-12-31';
+    SELECT * FROM Employees WHERE hire_date NOT BETWEEN '01-jan-2022' AND '31-dec-2022';
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+ ______________ _____________ ____________ ____________ _________
+           103 Michael       Johnson      15-03-23
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           111 William       Johnson      25-06-21         45000
+           113 Sophia        Davis        18-02-23         57000
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
 
 3. Display employees with employee IDs not between 101 and 110.
 
