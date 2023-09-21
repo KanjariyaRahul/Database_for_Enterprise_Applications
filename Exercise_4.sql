@@ -94,21 +94,109 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
 
     SELECT DISTINCT first_name FROM Employees;
 
+            FIRST_NAME
+            _____________
+            Oliver
+            Lucas
+            Daniel
+            Emma
+            Mia
+            Jane
+            Laura
+            William
+            Noah
+            Ava
+            Sophia
+            James
+            Amelia
+            Benjamin
+            Emily
+            John
+            Matthew
+            Olivia
+            Michael
+            Elijah
+
 2. Display a list of distinct last names of employees.
 
     SELECT DISTINCT last_name FROM Employees;
+
+        LAST_NAME
+        ____________
+        Brown
+        Miller
+        Davis
+        Wilson
+        Doe
+        Johnson
+        Smith
+        Williams
+        Jones
 
 3. List the unique hire dates of all employees.
 
     SELECT DISTINCT hire_date FROM Employees;
 
+         HIRE_DATE
+        ____________
+        01-07-22
+        20-04-23
+        10-12-21
+        30-05-23
+        22-06-22
+        18-02-23
+        02-12-21
+        05-09-22
+        15-03-23
+        09-03-23
+        08-08-22
+        25-06-21
+        12-10-22
+
 4. Show distinct salary values from the table.
 
     SELECT DISTINCT salary FROM Employees;
 
+        SALARY
+      _________
+        55000
+        51000
+        59000
+        56000
+        60000
+        48000
+        54000
+        45000
+        53000
+        52000
+        57000
+
 5. Display a list of employee IDs with no duplicates.
 
     SELECT DISTINCT employee_id FROM Employees;
+
+         EMPLOYEE_ID
+        ______________
+           101
+           102
+           103
+           104
+           105
+           106
+           107
+           108
+           109
+           110
+           111
+           112
+           113
+           114
+           115
+           116
+           117
+           118
+           119
+           120
 
 =============================== Comparing Values: ===========================
 
@@ -116,17 +204,50 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
 
     SELECT * FROM Employees WHERE salary > 50000;
 
+       EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+    ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           119 Lucas         Brown        22-06-22         56000
+
 2. List employees hired after January 1, 2022.
 
     SELECT * FROM Employees WHERE hire_date > '01-jan-2022';
+
+       EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+    ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           103 Michael       Johnson      15-03-23
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
 
 3. Display employees with a salary equal to $60,000.
 
     SELECT * FROM Employees WHERE salary = 60000;
 
+      EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+    ______________ _____________ ____________ ____________ _________
+           101      John            Doe         01-07-22      60000
+
 4. Show employees with a first name equal to 'John'.
 
-    SELECT * FROM Employees WHERE first_name = 'john';
+    SELECT * FROM Employees WHERE first_name = 'John';
+
+       EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+    ______________ _____________ ____________ ____________ _________
+           101         John            Doe       01-07-22     60000
 
 5. List employees with a salary less than or equal to $55,000.
 
@@ -224,8 +345,11 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
 
 1. Retrieve employees with NaN (Not a Number) salaries.
  
+    SELECT * FROM EMPLOYEES WHERE SALARY IS NAN;
 
 2. List employees with infinite salaries.
+
+    SELECT * FROM EMPLOYEES WHERE SALARY IS INFINITE;
 
 3. Display employees with non-null hire dates.
 
@@ -233,7 +357,12 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
 
 4. Show employees with salaries that are not NaN.
 
+    SELECT * FROM EMPLOYEES WHERE SALARY IS NOT NAN;
+
 5. List employees with salaries that are not infinite.
+
+    SELECT * FROM EMPLOYEES WHERE SALARY IS NOT INFINITE;
+
 
 =============================== NOT Like Operator: ===========================
 
@@ -328,18 +457,45 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
 
 1. Retrieve employees with salaries that are not NaN.
 
+    SELECT * FROM EMPLOYEES WHERE SALARY IS NOT NAN;
+
 2. List employees with no NaN values in the salary column.
+
+    SELECT * FROM EMPLOYEES WHERE SALARY IS NOT NAN;
+
 3. Display employees with non-NaN first names.
+    SELECT * FROM EMPLOYEES WHERE FIRST_NAME IS NOT NULL;
+
 4. Show employees with non-NaN last names.
+
+    SELECT * FROM EMPLOYEES WHERE LAST_NAME IS NOT NULL;
+
 5. List employees with no NaN values in the employee ID column.
+
+    SELECT * FROM EMPLOYEES WHERE EMPLOYEE_ID IS NOT NAN;
 
 =============================== IS NOT INFINITE Operator: =========================== 
 
 1. Retrieve employees with salaries that are not infinite.
+
+    SELECT * FROM EMPLOYEES WHERE SALARY IS NOT INFINITE;
+
 2. List employees with no infinite salary values.
+
+    SELECT * FROM EMPLOYEES WHERE SALARY IS NOT INFINITE;
+
 3. Display employees with non-infinite hire dates.
+
+    SELECT * FROM EMPLOYEES WHERE HIRE_DATE IS NOT NULL;
+
 4. Show employees with non-infinite first names.
+
+    SELECT * FROM EMPLOYEES WHERE FIRST_NAME IS NOT NULL;
+
 5. List employees with no infinite employee IDs.
+
+    SELECT * FROM EMPLOYEES WHERE EMPLOYEE_ID IS NOT INFINITE;
+
 
 =============================== Logical Operator: =========================== 
 
@@ -406,76 +562,3 @@ insert into Employees(employee_id,first_name,last_name,hire_date,salary)
 5. Display the last name and salary with the alias 'Details'.
 
     SELECT last_name || ', ' || salary AS Details FROM Employees;
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
