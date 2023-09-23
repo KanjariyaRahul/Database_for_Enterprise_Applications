@@ -811,13 +811,49 @@ ______________ _____________ ____________ ____________ _________
 
     SELECT * FROM Employees WHERE employee_id NOT BETWEEN 101 AND 110;
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+   ______________ _____________ ____________ ____________ _________
+           111 William       Johnson      25-06-21         45000
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           116 Amelia        Brown
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+           120 Mia           Johnson
+
 4. Show employees hired not between '2021-01-01' and '2021-12-31'.
 
-    SELECT * FROM Employees WHERE hire_date NOT BETWEEN '2021-01-01' AND '2021-12-31';
+    SELECT * FROM Employees WHERE hire_date NOT BETWEEN '01-jan-2021' AND '01-dec-2021';
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+   ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           103 Michael       Johnson      15-03-23
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+
 
 5. List employees with salaries not between $45,000.00 and $55,000.00.
 
     SELECT * FROM Employees WHERE salary NOT BETWEEN 45000.00 AND 55000.00;
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+   ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           109 Olivia        Jones        30-05-23         59000
+           113 Sophia        Davis        18-02-23         57000
+           119 Lucas         Brown        22-06-22         56000
 
 =============================== IS NOT NULL Operator: =========================== 
 
@@ -825,21 +861,120 @@ ______________ _____________ ____________ ____________ _________
 
     SELECT * FROM Employees WHERE hire_date IS NOT NULL;
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+   ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           103 Michael       Johnson      15-03-23
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+
 2. List employees with non-null salaries.
 
     SELECT * FROM Employees WHERE salary IS NOT NULL;
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           111 William       Johnson      25-06-21         45000
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           119 Lucas         Brown        22-06-22         56000
 
 3. Display employees with non-null first names.
 
     SELECT * FROM Employees WHERE first_name IS NOT NULL;
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           103 Michael       Johnson      15-03-23
+           104 Emily         Williams
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           108 Emma          Brown
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           116 Amelia        Brown
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+           120 Mia           Johnson
+
 4. Show employees with non-null last names.
 
     SELECT * FROM Employees WHERE last_name IS NOT NULL;
 
+       EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           103 Michael       Johnson      15-03-23
+           104 Emily         Williams
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           108 Emma          Brown
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           116 Amelia        Brown
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+           120 Mia           Johnson
+
 5. List employees with non-null employee IDs.
 
     SELECT * FROM Employees WHERE employee_id IS NOT NULL;
+
+       EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           103 Michael       Johnson      15-03-23
+           104 Emily         Williams
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           108 Emma          Brown
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           116 Amelia        Brown
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+           120 Mia           Johnson
 
 =============================== IS NOT NAN Operator: =========================== 
 
@@ -847,20 +982,118 @@ ______________ _____________ ____________ ____________ _________
 
     SELECT * FROM EMPLOYEES WHERE SALARY IS NOT NAN;
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           111 William       Johnson      25-06-21         45000
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           119 Lucas         Brown        22-06-22         56000
+
 2. List employees with no NaN values in the salary column.
 
     SELECT * FROM EMPLOYEES WHERE SALARY IS NOT NAN;
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           111 William       Johnson      25-06-21         45000
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           119 Lucas         Brown        22-06-22         56000
+
 3. Display employees with non-NaN first names.
+
     SELECT * FROM EMPLOYEES WHERE FIRST_NAME IS NOT NULL;
+
+       EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           103 Michael       Johnson      15-03-23
+           104 Emily         Williams
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           108 Emma          Brown
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           116 Amelia        Brown
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+           120 Mia           Johnson
 
 4. Show employees with non-NaN last names.
 
     SELECT * FROM EMPLOYEES WHERE LAST_NAME IS NOT NULL;
 
+       EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           103 Michael       Johnson      15-03-23
+           104 Emily         Williams
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           108 Emma          Brown
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           116 Amelia        Brown
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+           120 Mia           Johnson
+
 5. List employees with no NaN values in the employee ID column.
 
     SELECT * FROM EMPLOYEES WHERE EMPLOYEE_ID IS NOT NAN;
+
+       EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           103 Michael       Johnson      15-03-23
+           104 Emily         Williams
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           108 Emma          Brown
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           116 Amelia        Brown
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+           120 Mia           Johnson
 
 =============================== IS NOT INFINITE Operator: =========================== 
 
@@ -868,85 +1101,439 @@ ______________ _____________ ____________ ____________ _________
 
     SELECT * FROM EMPLOYEES WHERE SALARY IS NOT INFINITE;
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           111 William       Johnson      25-06-21         45000
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           119 Lucas         Brown        22-06-22         56000
+
 2. List employees with no infinite salary values.
 
     SELECT * FROM EMPLOYEES WHERE SALARY IS NOT INFINITE;
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           111 William       Johnson      25-06-21         45000
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           119 Lucas         Brown        22-06-22         56000
 
 3. Display employees with non-infinite hire dates.
 
     SELECT * FROM EMPLOYEES WHERE HIRE_DATE IS NOT NULL;
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           103 Michael       Johnson      15-03-23
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+
 4. Show employees with non-infinite first names.
 
     SELECT * FROM EMPLOYEES WHERE FIRST_NAME IS NOT NULL;
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           103 Michael       Johnson      15-03-23
+           104 Emily         Williams
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           108 Emma          Brown
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           116 Amelia        Brown
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+           120 Mia           Johnson
+
 5. List employees with no infinite employee IDs.
 
     SELECT * FROM EMPLOYEES WHERE EMPLOYEE_ID IS NOT INFINITE;
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           102 Jane          Smith                         55000
+           103 Michael       Johnson      15-03-23
+           104 Emily         Williams
+           105 Daniel        Brown        05-09-22         48000
+           106 Laura         Davis        20-04-23         52000
+           107 Matthew       Wilson       10-12-21         54000
+           108 Emma          Brown
+           109 Olivia        Jones        30-05-23         59000
+           110 Noah          Smith        08-08-22
+           111 William       Johnson      25-06-21         45000
+           112 Ava           Williams
+           113 Sophia        Davis        18-02-23         57000
+           114 James         Wilson
+           115 Oliver        Miller       12-10-22         51000
+           116 Amelia        Brown
+           117 Benjamin      Davis        02-12-21         53000
+           118 Elijah        Wilson       09-03-23
+           119 Lucas         Brown        22-06-22         56000
+           120 Mia           Johnson
 
 
 =============================== Logical Operator: =========================== 
 
 1. Retrieve employees with a salary greater than $50,000 and hired after January 1, 2022.
 
-    SELECT * FROM Employees WHERE salary > 50000.00 AND hire_date > '2022-01-01';
+    SELECT * FROM Employees WHERE salary > 50000.00 AND hire_date > '01-jan-2022';
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           106 Laura         Davis        20-04-23         52000
+           109 Olivia        Jones        30-05-23         59000
+           113 Sophia        Davis        18-02-23         57000
+           115 Oliver        Miller       12-10-22         51000
+           119 Lucas         Brown        22-06-22         56000
 
 2. List employees with a salary greater than $60,000 or hired before January 1, 2021.
 
-    SELECT * FROM Employees WHERE salary > 60000.00 AND hire_date < '2021-01-01';
+    SELECT * FROM Employees WHERE salary > 60000.00 AND hire_date < '01-jan-2021';
+
+    no rows selected
 
 3. Display employees with a salary greater than $50,000 and a last name starting with 'S'.
 
     SELECT * FROM Employees WHERE salary > 50000.00 AND last_name LIKE 'S%';
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           102 Jane          Smith                         55000
+
 4. Show employees with a null hire date or a salary less than $40,000.
 
     SELECT * FROM Employees WHERE hire_date IS NULL OR salary < 40000.00; 
+
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           102 Jane          Smith                         55000
+           104 Emily         Williams
+           108 Emma          Brown
+           112 Ava           Williams
+           114 James         Wilson
+           116 Amelia        Brown
+           120 Mia           Johnson
 
 5. List employees with a salary greater than $55,000 and a first name not equal to 'Jane'.
 
     SELECT * FROM employees WHERE salary > 55000.00 AND first_name != 'Jane';
 
+    EMPLOYEE_ID    FIRST_NAME    LAST_NAME    HIRE_DATE    SALARY
+  ______________ _____________ ____________ ____________ _________
+           101 John          Doe          01-07-22         60000
+           109 Olivia        Jones        30-05-23         59000
+           113 Sophia        Davis        18-02-23         57000
+           119 Lucas         Brown        22-06-22         56000
+
 =============================== Using Table Alias: =========================== 
 
 1. Display the first name and last name of employees using the alias 'Name'.
 
-   SELECT e.first_name AS Name, e.last_name AS Name FROM Employees AS e;
+  SELECT first_name || ' ' || last_name AS NAME FROM employees;
+
+    NAME
+__________________
+John Doe
+Jane Smith
+Michael Johnson
+Emily Williams
+Daniel Brown
+Laura Davis
+Matthew Wilson
+Emma Brown
+Olivia Jones
+Noah Smith
+William Johnson
+Ava Williams
+Sophia Davis
+James Wilson
+Oliver Miller
+Amelia Brown
+Benjamin Davis
+Elijah Wilson
+Lucas Brown
+Mia Johnson
 
 2. List the hire date and salary of employees using the alias 'Employment_Details'.
 
-    SELECT e.hire_date AS Employment_Details, e.salary AS Employment_Details FROM Employees AS e;
+    
+  SELECT hire_date || ' ' || salary AS EMPLOYEE_DETAIL FROM Employees;
+     EMPLOYEE_DETAIL
+__________________
+01-07-22 60000
+         55000
+15-03-23
+
+05-09-22 48000
+20-04-23 52000
+10-12-21 54000
+
+30-05-23 59000
+08-08-22
+25-06-21 45000
+
+18-02-23 57000
+
+12-10-22 51000
+
+02-12-21 53000
+09-03-23
+22-06-22 56000
+
+
 
 3. Retrieve the employee ID and hire date using the alias 'ID_Date'.
  
-    SELECT e.employee_id AS ID_Date, e.hire_date AS ID_Date FROM Employees AS e;
+    SELECT employee_id || ' ' || hire_date AS ID_DATE FROM employees;
+
+    ID_DATE
+_______________
+101 01-07-22
+102
+103 15-03-23
+104
+105 05-09-22
+106 20-04-23
+107 10-12-21
+108
+109 30-05-23
+110 08-08-22
+111 25-06-21
+112
+113 18-02-23
+114
+115 12-10-22
+116
+117 02-12-21
+118 09-03-23
+119 22-06-22
+120
+
+
 
 4. Show the last name and salary of employees using the alias 'Last_Salary'.
 
-    SELECT e.last_name AS Last_Salary, e.salary AS Last_Salary FROM Employees AS e;
+    SELECT last_name || '  ' || salary AS Last_Salary FROM Employees;
+
+    LAST_SALARY
+_________________
+Doe  60000
+Smith  55000
+Johnson
+Williams
+Brown  48000
+Davis  52000
+Wilson  54000
+Brown
+Jones  59000
+Smith
+Johnson  45000
+Williams
+Davis  57000
+Wilson
+Miller  51000
+Brown
+Davis  53000
+Wilson
+Brown  56000
+Johnson
 
 5. List the first name and hire date of employees using the alias 'Name_Date'.
 
-    SELECT e.first_name AS Name_Date, e.hire_date AS Name_Date FROM Employees AS e;
+    SELECT first_name || ' ' || hire_date AS Name_Date FROM Employees;
+
+              NAME_DATE
+___________________
+John 01-07-22
+Jane
+Michael 15-03-23
+Emily
+Daniel 05-09-22
+Laura 20-04-23
+Matthew 10-12-21
+Emma
+Olivia 30-05-23
+Noah 08-08-22
+William 25-06-21
+Ava
+Sophia 18-02-23
+James
+Oliver 12-10-22
+Amelia
+Benjamin 02-12-21
+Elijah 09-03-23
+Lucas 22-06-22
+Mia
 
 =============================== Using Column Alias:: =========================== 
 
 1. Retrieve a list of employee IDs with the alias 'EmployeeID'.
 
     SELECT employee_id AS EmployeeID FROM Employees;
+       
+    EMPLOYEEID
+_____________
+          101
+          102
+          103
+          104
+          105
+          106
+          107
+          108
+          109
+          110
+          111
+          112
+          113
+          114
+          115
+          116
+          117
+          118
+          119
+          120
 
 2. Display the first name and last name with the alias 'Full_Name'.
 
     SELECT first_name || ' ' || last_name AS Full_Name FROM Employees;
 
+    FULL_NAME
+__________________
+    John Doe
+    Jane Smith
+    Michael Johnson
+    Emily Williams
+    Daniel Brown
+    Laura Davis
+    Matthew Wilson
+    Emma Brown
+    Olivia Jones
+    Noah Smith
+    William Johnson
+    Ava Williams
+    Sophia Davis
+    James Wilson
+    Oliver Miller
+    Amelia Brown
+    Benjamin Davis
+    Elijah Wilson
+    Lucas Brown
+    Mia Johnson
+
 3. List the hire date with the alias 'Join_Date'.
 
     SELECT hire_date AS Join_Date FROM Employees;
 
+    JOIN_DATE
+  ____________
+    01-07-22
+
+    15-03-23
+
+    05-09-22
+    20-04-23
+    10-12-21
+
+    30-05-23
+    08-08-22
+    25-06-21
+
+    18-02-23
+
+    12-10-22
+
+    02-12-21
+    09-03-23
+    22-06-22
+
+
 4. Show the salary with the alias 'Income'.
 
-    SELECT salary AS Income FROM Employees;
+    SELECT salary AS Income FROM Employees; 
+       
+    INCOME
+ _________
+    60000
+    55000
+
+
+    48000
+    52000
+    54000
+
+    59000
+
+    45000
+
+    57000
+
+    51000
+
+    53000
+
+    56000
 
 5. Display the last name and salary with the alias 'Details'.
 
     SELECT last_name || ', ' || salary AS Details FROM Employees;
+
+    DETAILS
+ _________________
+    Doe, 60000
+    Smith, 55000
+    Johnson,
+    Williams,
+    Brown, 48000
+    Davis, 52000
+    Wilson, 54000
+    Brown,
+    Jones, 59000
+    Smith,
+    Johnson, 45000
+    Williams,
+    Davis, 57000
+    Wilson,
+    Miller, 51000
+    Brown,
+    Davis, 53000
+    Wilson,
+    Brown, 56000
+    Johnson,
