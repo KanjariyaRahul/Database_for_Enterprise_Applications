@@ -49,6 +49,10 @@ select first_name,replace(firat_name,'Divya','div') from employees;
 
 select first_name,replace(upper(firat_name),'Divya','div') from employees;
 
+============================= substring =============================
+
+select substr(first_name,1,4) from employees;
+
 
  
 
