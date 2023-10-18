@@ -266,3 +266,48 @@ CREATE TABLE CustomerOrders (
 
 UPDATE CustomerOrders SET status = 'Canceled', tracking_number = NULL WHERE order_id = 501;
 
+------------ Delete Queries for EmployeeInfo Table: ---------------
+
+1. You need to remove an employee with employee_id 101 who has left the company. Write an SQL query to delete this employees record from the EmployeeInfo table.
+
+    DELETE FROM EmployeeInfo WHERE employee_id = 101;
+
+2. Delete all employees with a hire_date before '2020-01-01' who are no longer with the company. Write an SQL query to remove these records.
+
+DELETE FROM EmployeeInfo WHERE hire_date < TO_DATE('01-jan-2020');
+
+
+------------- Delete Queries for ProductInventory Table: ------------
+
+1. A product with product_id 201 is discontinued and should be removed from the inventory. Write an SQL query to delete this products record from the ProductInventory table.
+ 
+    DELETE FROM ProductInventory WHERE product_id = 201;
+
+2. Delete all products with a price greater than $500.00 that are no longer in stock (quantity_in_stock = 0). Write an SQL query to remove these records.
+
+    DELETE FROM ProductInventory WHERE price > 500.00 AND quantity_in_stock = 0;
+
+
+---------------- Delete Queries for LibraryBooks Table: --------------
+
+1. A book with book_id 102 has been permanently removed from the library's collection. Write an SQL query to delete this book's record from the LibraryBooks table.
+
+    DELETE FROM LibraryBooks WHERE book_id = 102;
+
+
+2. Remove all books published before the year 1990 that have less than 5 available copies. Write an SQL query to remove these records.
+
+    DELETE FROM LibraryBooks WHERE EXTRACT(YEAR FROM publication_date) < 1990 AND available_quantity < 5;
+
+
+
+------------- Delete Queries for CustomerOrders Table: ---------------
+
+1. An order with order_id 301 was mistakenly duplicated in the system and needs to be deleted. Write an SQL query to remove one of the duplicate orders.
+
+    DELETE FROM CustomerOrders WHERE order_id = 301;
+
+
+2. Delete all orders with a total_amount less than $50.00 that are in 'Canceled' status. Write an SQL query to remove these records.
+
+    DELETE FROM CustomerOrders WHERE total_amount < 50.00 AND status = 'Canceled';
